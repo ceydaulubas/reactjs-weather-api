@@ -3,15 +3,17 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
 import SearchBar from '../Search/SearchBar'
+import ForecastList from '../Forecasts/ForecastList';
 
-const ForecastApp = () => {
+const ForecastApp = (props) => {
     const [searchBarInput, setSearchBarInput] = useState("")
     const [forecastListResults, setForecastListResults] = useState([]);
 
     const handleSearchForForecast = () => {
 
         const API_KEY = "f13c4a1e0110a21f84487056745a3c76";
-        const searchInput = searchBarInput ? searchBarInput : "istanbul";
+        const searchInput = searchBarInput;
+
 
         axios
             .get(`http://api.openweathermap.org/data/2.5/forecast?q=${searchInput}&appid=${API_KEY}`)
@@ -33,7 +35,13 @@ const ForecastApp = () => {
 
     return (
         <div>
-            <SearchBar addSearchInput={handleAddSearchBarInputToAppState}/>
+            <SearchBar addSearchInput={handleAddSearchBarInputToAppState} />
+            <div>
+                {forecastListResults.length === 0 ? (
+                    null
+                ) :
+                    <ForecastList forecastResults={forecastListResults} />}
+            </div>
         </div>
     )
 }

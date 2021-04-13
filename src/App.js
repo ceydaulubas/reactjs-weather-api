@@ -1,6 +1,6 @@
 import './App.css';
 
-import ForecastApp from './components/Forecast/ForecastApp'
+import ForecastApp from './components/ForecastRoot/ForecastApp'
 
 function App() {
   return (

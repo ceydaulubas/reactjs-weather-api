@@ -23,7 +23,7 @@ const SearchBar = ({ addSearchInput }) => {
     };
 
     return (
-        <from onSubmit = {handleFormSubmit}>
+        <form onSubmit = {handleFormSubmit}>
             <input
                 type="text"
                 name="search"
@@ -32,7 +32,7 @@ const SearchBar = ({ addSearchInput }) => {
                 onChange={handleInputChange}
             />
             <button type="submit">Search</button>
-        </from>
+        </form>
     );
 }
 
