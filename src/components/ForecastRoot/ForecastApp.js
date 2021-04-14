@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
 import SearchBar from '../Search/SearchBar'
-import ForecastList from '../Forecasts/ForecastList';
+import ForecastList from '../ForecastList/ForecastList';
 
 const ForecastApp = (props) => {
     const [searchBarInput, setSearchBarInput] = useState("")
@@ -12,7 +12,7 @@ const ForecastApp = (props) => {
     const handleSearchForForecast = () => {
 
         const API_KEY = "f13c4a1e0110a21f84487056745a3c76";
-        const searchInput = searchBarInput;
+        const searchInput = searchBarInput ? searchBarInput : 'istanbul';
 
 
         axios
