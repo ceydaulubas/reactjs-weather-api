@@ -8,17 +8,22 @@ import ForecastList from '../ForecastList/ForecastList';
 const ForecastApp = (props) => {
     const [searchBarInput, setSearchBarInput] = useState("")
     const [forecastListResults, setForecastListResults] = useState([]);
+    const [currentListWeather, setCurrentListWeather] =useState ([]);
 
     const handleSearchForForecast = () => {
 
         const API_KEY = "f13c4a1e0110a21f84487056745a3c76";
-        const searchInput = searchBarInput ? searchBarInput : 'istanbul';
-
+        const searchInput = searchBarInput ? searchBarInput : 'amsterdam';
 
         axios
             .get(`http://api.openweathermap.org/data/2.5/forecast?q=${searchInput}&appid=${API_KEY}`)
             .then((forecastResults) => setForecastListResults(forecastResults.data))
-            .catch((error) => console.error(`Someting went wrong: ${error}`));
+            .catch((error) => console.error(`Someting went wrong: ${error} in forecast part`));
+
+        axios
+        .get(`http://api.openweathermap.org/data/2.5/weather?q=${searchInput}&appid=${API_KEY}`)
+        .then((weatherResult)=> setCurrentListWeather(weatherResult.data))
+        .catch((error) => console.error(`Someting went wrong: ${error} in current weather part`))
     };
 
     // useEffect() is used to mimic the behavior of componentDidMount() & componentDidUpdate()
@@ -37,11 +42,14 @@ const ForecastApp = (props) => {
         <div>
             <SearchBar addSearchInput={handleAddSearchBarInputToAppState} />
             <div>
-                {forecastListResults.length === 0 ? (
+                {(forecastListResults.length === 0) || (currentListWeather.length ===0) ? (
                     null
                 ) :
-                    <ForecastList forecastResults={forecastListResults} />}
+                    <ForecastList forecastResults={forecastListResults} 
+                    currentWeather={currentListWeather}
+                    />}
             </div>
+         
         </div>
     )
 }
