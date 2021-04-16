@@ -7,7 +7,7 @@ import ForecastList from '../ForecastList/ForecastList';
 
 
 const ForecastApp = (props) => {
-    const [searchBarInput, setSearchBarInput] = useState("")
+    const [searchBarInput, setSearchBarInput] = useState("");
     const [forecastListResults, setForecastListResults] = useState([]);
     const [currentListWeather, setCurrentListWeather] =useState ([]);
 

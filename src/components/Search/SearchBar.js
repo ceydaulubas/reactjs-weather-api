@@ -1,4 +1,6 @@
-import React, { useState } from 'react'
+import React, { useState } from 'react';
+
+import './SearchBar.css'
 
 const initialState = "";
 
@@ -18,20 +20,24 @@ const SearchBar = ({ addSearchInput }) => {
         // Call a function that will allow for the form to lift it's state to the main application.
         addSearchInput(searchState);
 
-         // reset the state of the form
+        // reset the state of the form
         setSearchState(initialState);
     };
 
     return (
-        <form onSubmit = {handleFormSubmit}>
+        <form onSubmit={handleFormSubmit} className="searchBox">
             <input
+                className="searchInput"
                 type="text"
                 name="search"
                 placeholder="Search City for forecast.."
                 value={searchState}
                 onChange={handleInputChange}
             />
-            <button type="submit">Search</button>
+            <button className="searchButton" type="submit">
+            <i className="material-icons">
+            search
+                </i></button>
         </form>
     );
 }
