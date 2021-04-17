@@ -1,7 +1,13 @@
 import React from 'react';
-import '../ForecastList/ForecastList.css'
+import '../ForecastList/ForecastList.css';
 
-import CurrentDate from '../Date/Date'
+import CurrentDate from '../Date/Date';
+import MinTemp from '../../imagines/min-temp.png';
+import MaxTemp from '../../imagines/max-temp.png';
+import SunRise from '../../imagines/sunrise.png';
+import SunSet from '../../imagines/sunset.png';
+import Humidity from '../../imagines/humidity.png';
+import Wind from '../../imagines/wind.png';
 
 const ForecastList = ({ forecastResults, currentWeather }) => {
 
@@ -16,8 +22,8 @@ const ForecastList = ({ forecastResults, currentWeather }) => {
   let sunSetTime = dateForSunset.toLocaleTimeString(navigator.language, { hour: '2-digit', minute: '2-digit' });
 
   return (
-    <div>
-      <div className="top-info">
+    <div className="container">
+      <div className= "top-info">
         <h1 className="city">{forecastResults.city.name}
           <span className="country"> ({forecastResults.city.country})</span>
         </h1>
@@ -26,13 +32,13 @@ const ForecastList = ({ forecastResults, currentWeather }) => {
           <div>
             <CurrentDate />
           </div>
-          <img className="img-fluid" src={`http://openweathermap.org/img/w/${currentWeather.weather[0].icon}.png`} />
           <p>{((currentWeather.main.temp) - 273.15).toFixed(0)}°C | {(currentWeather.weather[0].description).charAt(0).toUpperCase() + (currentWeather.weather[0].description).slice(1)} </p>
+          <img className="img-fluid" src={`http://openweathermap.org/img/w/${currentWeather.weather[0].icon}.png`} />
         </div>
       </div>
 
-      <div>
-        <table>
+      <div className= "hour-forecast-slider">
+        <table className ="hourly-table">
           <tr>
             <td><img className="img-fluid" src={`http://openweathermap.org/img/w/${forecastResults.list[0].weather[0].icon}.png`} /></td>
             <td><img className="img-fluid" src={`http://openweathermap.org/img/w/${forecastResults.list[1].weather[0].icon}.png`} /></td>
@@ -55,16 +61,16 @@ const ForecastList = ({ forecastResults, currentWeather }) => {
       </div>
 
 
-      <div>
-        <p> Average minimum temperature is {((currentWeather.main.temp_min) - 273.15).toFixed(0)} °C</p>
-        <p> Average maximum temperature is {((currentWeather.main.temp_max) - 273.15).toFixed(0)} °C</p>
-        <p> The wind speed is {currentWeather.wind.speed} km per hour</p>
-        <p> The humidty is {currentWeather.main.humidity} % </p>
-        <p> The sun rises at {sunRiseTime} </p>
-        <p> The sun sets at {sunSetTime} </p>
+      <div className="forecast-generalinfo">
+        <p> <img src={MinTemp} alt="min" width="20" height="20"></img> Average minimum temperature is {((currentWeather.main.temp_min) - 273.15).toFixed(0)} °C</p>
+        <p> <img src={MaxTemp} alt="min" width="20" height="20"></img> Average maximum temperature is {((currentWeather.main.temp_max) - 273.15).toFixed(0)} °C</p>
+        <p> <img src={Wind} alt="min" width="20" height="20"></img> The wind speed is {currentWeather.wind.speed} km per hour</p>
+        <p> <img src={Humidity} alt="min" width="20" height="20"></img> The humidty is {currentWeather.main.humidity} % </p>
+        <p> <img src={SunRise} alt="min" width="20" height="20"></img> The sun rises at {sunRiseTime} </p>
+        <p> <img src={SunSet} alt="min" width="20" height="20"></img> The sun sets at {sunSetTime} </p>
       </div>
 
-      <div>
+      <div className="comingdays-forecast">
         <h2> Coming Days</h2>
         <table>
           <tr>
@@ -106,7 +112,6 @@ const ForecastList = ({ forecastResults, currentWeather }) => {
         </table>
       </div>
     </div >
-
   )
 }
 

@@ -1,0 +1,23 @@
+  .cloud{
+    background:url('../../imagines/bg-clouds.png') repeat-x;
+    height:175px;
+    width:100%;
+    animation:cloudani 10s linear infinite;
+    padding:0;
+    margin:0;
+  }
+  @keyframes cloudani{
+    from{
+      background-position:0 0;
+    }
+    to{
+      background-position:100% 0;
+    }
+  }
+
+  .navbar-title{
+      text-align: center;
+      color: white;
+      padding: 3%;
+      width: 100%;
+  }

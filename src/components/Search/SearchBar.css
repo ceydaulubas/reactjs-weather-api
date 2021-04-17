@@ -1,6 +1,5 @@
 .searchBox {
-    position: absolute;
-    /* top: 50%; */
+    position:absolute;
     left: 50%;
     transform:  translate(-50%,50%);
     background: #2f3640;
@@ -47,9 +46,10 @@
 
 }
 
-@media screen and (max-width: 620px) {
+@media screen and (max-width: 979px) {
 .searchBox:hover > .searchInput {
     width: 150px;
     padding: 0 6px;
+
 }
 }

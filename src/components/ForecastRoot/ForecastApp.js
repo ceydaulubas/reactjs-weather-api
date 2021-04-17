@@ -2,9 +2,11 @@ import React, { useState, useEffect } from 'react';
 
 import axios from 'axios';
 
-import SearchBar from '../Search/SearchBar'
-import ForecastList from '../ForecastList/ForecastList';
+import './ForecatApp.css';
+import '../ForecastList/ForecastList.css';
 
+import SearchBar from '../Search/SearchBar';
+import ForecastList from '../ForecastList/ForecastList';
 
 const ForecastApp = (props) => {
     const [searchBarInput, setSearchBarInput] = useState("");
@@ -40,7 +42,7 @@ const ForecastApp = (props) => {
 
 
     return (
-        <div>
+        <div className ="main-layout">
             <SearchBar addSearchInput={handleAddSearchBarInputToAppState} />
             <div>
                 {(forecastListResults.length === 0) || (currentListWeather.length ===0) ? (

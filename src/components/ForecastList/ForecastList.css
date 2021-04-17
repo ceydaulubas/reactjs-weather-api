@@ -1,4 +1,39 @@
+/* .forecatlistmaintable{
+    margin-left:10%;
+    margin-right: 10%;
+    background-color: rgba(196, 238, 255, 0.164);
+    border:rgba(255, 255, 255, 0.075) solid ;
+    color: white;
+}*/
 .top-info{
+    margin-top: 25%;
+    margin-left: 2%;
+    float: left;
+}
 
-    border-style:solid;
+.forecast-generalinfo{
+    margin-top: 25%;
+}
+
+.hour-forecast-slider{
+    margin-top: 25%;
+}
+
+.comingdays-forecast{
+
+} 
+
+.container{
+    display: grid;
+    grid-template-columns: 500px 500px 500px;
+    grid-template-rows: 500px;
+
+    /* grid-column-gap: 25px;
+   grid-row-gap: 25px; */
+
+   margin-left:10%;
+   margin-right: 10%;
+   background-color: rgba(196, 238, 255, 0.164);
+   border:rgba(255, 255, 255, 0.075) solid ;
+   color: white;
 }
