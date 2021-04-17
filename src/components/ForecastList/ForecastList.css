@@ -1,39 +1,49 @@
-/* .forecatlistmaintable{
-    margin-left:10%;
-    margin-right: 10%;
-    background-color: rgba(196, 238, 255, 0.164);
-    border:rgba(255, 255, 255, 0.075) solid ;
-    color: white;
-}*/
 .top-info{
-    margin-top: 25%;
-    margin-left: 2%;
+    margin-top: 30%;
+    margin-left: 15%;
     float: left;
+    /* background-color: tomato; */
 }
 
 .forecast-generalinfo{
-    margin-top: 25%;
+    margin-top: 30%;
+    /* background-color: yellow; */
 }
 
 .hour-forecast-slider{
-    margin-top: 25%;
+    margin-top: 50%;
+    /* background-color: violet; */
 }
-
-.comingdays-forecast{
-
-} 
 
 .container{
     display: grid;
-    grid-template-columns: 500px 500px 500px;
-    grid-template-rows: 500px;
+    grid-template-columns: 33% 33% 33%;
+    grid-template-rows: 400px;
 
-    /* grid-column-gap: 25px;
-   grid-row-gap: 25px; */
+    grid-column-gap: 2%;
+   grid-row-gap: 2%;
 
    margin-left:10%;
    margin-right: 10%;
    background-color: rgba(196, 238, 255, 0.164);
    border:rgba(255, 255, 255, 0.075) solid ;
    color: white;
+}
+
+.comingdays-forecast{
+    /* background-color:rgb(69, 68, 143); */
+    margin-left:50%;
+    height: 40vh;
+    width: 100%;
+    margin-top: 10%;
+} 
+
+.comingdays-table td{
+    padding-left: 15%;
+
+}
+
+.comingdays-table th{
+    padding-left: 15%;
+
 }

@@ -8,6 +8,7 @@ import SunRise from '../../imagines/sunrise.png';
 import SunSet from '../../imagines/sunset.png';
 import Humidity from '../../imagines/humidity.png';
 import Wind from '../../imagines/wind.png';
+import Population from '../../imagines/population.png';
 
 const ForecastList = ({ forecastResults, currentWeather }) => {
 
@@ -27,7 +28,6 @@ const ForecastList = ({ forecastResults, currentWeather }) => {
         <h1 className="city">{forecastResults.city.name}
           <span className="country"> ({forecastResults.city.country})</span>
         </h1>
-        <p>Population : {(forecastResults.city.population).toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.')}</p>
         <div>
           <div>
             <CurrentDate />
@@ -62,6 +62,7 @@ const ForecastList = ({ forecastResults, currentWeather }) => {
 
 
       <div className="forecast-generalinfo">
+      <p> <img src={Population} alt="min" width="20" height="20"></img> {currentWeather.name}'s population is {(forecastResults.city.population).toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.')}</p>
         <p> <img src={MinTemp} alt="min" width="20" height="20"></img> Average minimum temperature is {((currentWeather.main.temp_min) - 273.15).toFixed(0)} °C</p>
         <p> <img src={MaxTemp} alt="min" width="20" height="20"></img> Average maximum temperature is {((currentWeather.main.temp_max) - 273.15).toFixed(0)} °C</p>
         <p> <img src={Wind} alt="min" width="20" height="20"></img> The wind speed is {currentWeather.wind.speed} km per hour</p>
@@ -72,8 +73,8 @@ const ForecastList = ({ forecastResults, currentWeather }) => {
 
       <div className="comingdays-forecast">
         <h2> Coming Days</h2>
-        <table>
-          <tr>
+        <table className="comingdays-table">
+          <tr >
             <td><img className="img-fluid" src={`http://openweathermap.org/img/w/${forecastResults.list[7].weather[0].icon}.png`} /></td>
             <td><img className="img-fluid" src={`http://openweathermap.org/img/w/${forecastResults.list[15].weather[0].icon}.png`} /></td>
             <td><img className="img-fluid" src={`http://openweathermap.org/img/w/${forecastResults.list[23].weather[0].icon}.png`} /></td>
