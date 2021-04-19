@@ -1,25 +1,38 @@
-  .cloud{
-    background:url('../../imagines/bg-clouds.png') repeat-x;
-    height:175px;
-    width:100%;
-    animation:cloudani 10s linear infinite;
-    padding:0;
-    margin:0;
+.cloud {
+  background: url("../../imagines/bg-clouds.png") repeat-x;
+  height: 175px;
+  width: 100%;
+  animation: cloudani 10s linear infinite;
+  padding: 0;
+  margin: 0;
+}
+@keyframes cloudani {
+  from {
+    background-position: 0 0;
   }
-  @keyframes cloudani{
-    from{
-      background-position:0 0;
-    }
-    to{
-      background-position:100% 0;
-    }
+  to {
+    background-position: 100% 0;
   }
+}
 
-  .navbar-title{
-      /* text-align: center; */
-      color: white;
-      padding: 3%;
-      width: 100%;
-      color: rgb(53, 61, 61);
-      margin-left: 2.5%;
-  }
+.navbar-title {
+  color: white;
+  padding: 3%;
+  width: 100%;
+  color: rgb(53, 61, 61);
+  margin-left: 2.5%;
+}
+
+footer {
+  bottom: 0;
+  width: 100%;
+  background-color: rgba(24, 31, 34, 0.692);
+  border: solid rgba(24, 31, 34, 0.575);
+  text-align: center;
+  padding: 12px;
+  color: rgb(112, 153, 160);
+}
+
+footer a {
+  color: rgb(99, 107, 109);
+}

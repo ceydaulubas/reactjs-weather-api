@@ -22,8 +22,9 @@ const ForecastList = ({ forecastResults, currentWeather }) => {
   let dateForSunset = new Date(sunset * 1000);
   let sunSetTime = dateForSunset.toLocaleTimeString(navigator.language, { hour: '2-digit', minute: '2-digit' });
 
+
   return (
-    <div >
+    <div className="all-of-them">
 
       <div className="top-info">
         <h1 className="city">{forecastResults.city.name}
@@ -86,27 +87,30 @@ const ForecastList = ({ forecastResults, currentWeather }) => {
         <table className="comingdays-table">
           <thead>
             <tr>
-              <th>{(new Date(forecastResults.list[7].dt_txt).getFullYear() + '/') +
-                (new Date(forecastResults.list[7].dt_txt).getMonth() + 1 + '/') +
-                (new Date(forecastResults.list[7].dt_txt).getDate())}</th>
+              <th>{(new Date(forecastResults.list[7].dt_txt).getDate()) + '/' +
+              (new Date(forecastResults.list[7].dt_txt).getMonth() + 1)
+              }</th>
 
-              <th>{(new Date(forecastResults.list[15].dt_txt).getFullYear() + '/') +
-                (new Date(forecastResults.list[15].dt_txt).getMonth() + 1 + '/') +
-                (new Date(forecastResults.list[15].dt_txt).getDate())}</th>
+              <th>{(new Date(forecastResults.list[15].dt_txt).getDate()) + '/' +
+                (new Date(forecastResults.list[15].dt_txt).getMonth() + 1)
+              }</th>
 
-              <th>{(new Date(forecastResults.list[23].dt_txt).getFullYear() + '/') +
-                (new Date(forecastResults.list[23].dt_txt).getMonth() + 1 + '/') +
-                (new Date(forecastResults.list[23].dt_txt).getDate())}</th>
+              <th>{(new Date(forecastResults.list[23].dt_txt).getDate()) + '/' +
+                (new Date(forecastResults.list[23].dt_txt).getMonth() + 1)
+              }</th>
 
-              <th>{(new Date(forecastResults.list[31].dt_txt).getFullYear() + '/') +
-                (new Date(forecastResults.list[31].dt_txt).getMonth() + 1 + '/') +
-                (new Date(forecastResults.list[31].dt_txt).getDate())}</th>
+              <th>{(new Date(forecastResults.list[31].dt_txt).getDate()) + '/' +
+                (new Date(forecastResults.list[31].dt_txt).getMonth() + 1)
+              }</th>
 
-              <th>{(new Date(forecastResults.list[39].dt_txt).getFullYear() + '/') +
-                (new Date(forecastResults.list[39].dt_txt).getMonth() + 1 + '/') +
-                (new Date(forecastResults.list[39].dt_txt).getDate())}</th>
+              <th>{
+                (new Date(forecastResults.list[39].dt_txt).getDate()) + '/' +
+                (new Date(forecastResults.list[39].dt_txt).getMonth() + 1)
+              }</th>
             </tr>
           </thead>
+
+          {/* (new Date(forecastResults.list[39].dt_txt).getFullYear() + '/')  */}
 
           <tbody>
             <tr >
