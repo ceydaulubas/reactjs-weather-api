@@ -23,49 +23,55 @@ const ForecastList = ({ forecastResults, currentWeather }) => {
   let sunSetTime = dateForSunset.toLocaleTimeString(navigator.language, { hour: '2-digit', minute: '2-digit' });
 
   return (
-    <div>
-      <div className= "top-info">
+    <div >
+
+      <div className="top-info">
         <h1 className="city">{forecastResults.city.name}
           <span className="country"> ({forecastResults.city.country})</span>
         </h1>
-        <div>
-          <div className="current-date">
-            <CurrentDate />
-          </div> 
-          <br/>
-          <div className="current-weather">
+
+        <div className="current-date">
+          <CurrentDate />
+        </div>
+
+        <br />
+
+        <div className="current-weather">
           <p>{((currentWeather.main.temp) - 273.15).toFixed(0)}°C | {(currentWeather.weather[0].description).charAt(0).toUpperCase() + (currentWeather.weather[0].description).slice(1)} </p>
-          <img className="img-fluid-current" src={`http://openweathermap.org/img/w/${currentWeather.weather[0].icon}.png`} />
-          </div>
+          <img className="img-fluid-current" alt="current-forecast" src={`http://openweathermap.org/img/w/${currentWeather.weather[0].icon}.png`} />
         </div>
       </div>
 
-      <div className= "hour-forecast-slider">
-        <table className ="hourly-table">
-          <tr>
-            <td><img className="img-fluid" src={`http://openweathermap.org/img/w/${forecastResults.list[0].weather[0].icon}.png`} /></td>
-            <td><img className="img-fluid" src={`http://openweathermap.org/img/w/${forecastResults.list[1].weather[0].icon}.png`} /></td>
-            <td><img className="img-fluid" src={`http://openweathermap.org/img/w/${forecastResults.list[2].weather[0].icon}.png`} /></td>
-            <td><img className="img-fluid" src={`http://openweathermap.org/img/w/${forecastResults.list[3].weather[0].icon}.png`} /></td>
-          </tr>
-          <tr>
-            <th>{new Date(forecastResults.list[0].dt_txt).getHours()}:00</th>
-            <th>{new Date(forecastResults.list[1].dt_txt).getHours()}:00</th>
-            <th>{new Date(forecastResults.list[2].dt_txt).getHours()}:00</th>
-            <th>{new Date(forecastResults.list[3].dt_txt).getHours()}:00</th>
-          </tr>
-          <tr>
-            <td>{((forecastResults.list[0].main.temp) - 273.15).toFixed(0)}°C</td>
-            <td>{((forecastResults.list[1].main.temp) - 273.15).toFixed(0)}°C</td>
-            <td>{((forecastResults.list[2].main.temp) - 273.15).toFixed(0)}°C</td>
-            <td>{((forecastResults.list[3].main.temp) - 273.15).toFixed(0)}°C</td>
-          </tr>
+      <div className="hour-forecast-slider">
+        <table className="hourly-table">
+          <thead>
+            <tr>
+              <th>{new Date(forecastResults.list[0].dt_txt).getHours()}:00</th>
+              <th>{new Date(forecastResults.list[1].dt_txt).getHours()}:00</th>
+              <th>{new Date(forecastResults.list[2].dt_txt).getHours()}:00</th>
+              <th>{new Date(forecastResults.list[3].dt_txt).getHours()}:00</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><img className="img-fluid" alt="hourly-forecast0" src={`http://openweathermap.org/img/w/${forecastResults.list[0].weather[0].icon}.png`} /></td>
+              <td><img className="img-fluid" alt="hourly-forecast1" src={`http://openweathermap.org/img/w/${forecastResults.list[1].weather[0].icon}.png`} /></td>
+              <td><img className="img-fluid" alt="hourly-forecast2" src={`http://openweathermap.org/img/w/${forecastResults.list[2].weather[0].icon}.png`} /></td>
+              <td><img className="img-fluid" alt="hourly-forecast3" src={`http://openweathermap.org/img/w/${forecastResults.list[3].weather[0].icon}.png`} /></td>
+            </tr>
+            <tr>
+              <td>{((forecastResults.list[0].main.temp) - 273.15).toFixed(0)}°C</td>
+              <td>{((forecastResults.list[1].main.temp) - 273.15).toFixed(0)}°C</td>
+              <td>{((forecastResults.list[2].main.temp) - 273.15).toFixed(0)}°C</td>
+              <td>{((forecastResults.list[3].main.temp) - 273.15).toFixed(0)}°C</td>
+            </tr>
+          </tbody>
         </table>
       </div>
 
 
       <div className="forecast-generalinfo">
-      <p> <img src={Population} alt="min" width="30" height="30"></img> {currentWeather.name}'s population is {(forecastResults.city.population).toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.')}</p>
+        <p> <img src={Population} alt="min" width="30" height="30"></img> {currentWeather.name}'s population is {(forecastResults.city.population).toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.')}</p>
         <p> <img src={MinTemp} alt="min" width="30" height="30"></img> Average minimum temperature is {((currentWeather.main.temp_min) - 273.15).toFixed(0)} °C</p>
         <p> <img src={MaxTemp} alt="min" width="30" height="30"></img> Average maximum temperature is {((currentWeather.main.temp_max) - 273.15).toFixed(0)} °C</p>
         <p> <img src={Wind} alt="min" width="30" height="30"></img> The wind speed is {currentWeather.wind.speed} km per hour</p>
@@ -76,45 +82,53 @@ const ForecastList = ({ forecastResults, currentWeather }) => {
 
       <div className="comingdays-forecast">
         <h2> Coming Days</h2>
+
         <table className="comingdays-table">
-          <tr >
-            <td><img className="img-comingdays-forecast" src={`http://openweathermap.org/img/w/${forecastResults.list[7].weather[0].icon}.png`} /></td>
-            <td><img className="img-comingdays-forecast" src={`http://openweathermap.org/img/w/${forecastResults.list[15].weather[0].icon}.png`} /></td>
-            <td><img className="img-comingdays-forecast" src={`http://openweathermap.org/img/w/${forecastResults.list[23].weather[0].icon}.png`} /></td>
-            <td><img className="img-comingdays-forecast" src={`http://openweathermap.org/img/w/${forecastResults.list[31].weather[0].icon}.png`} /></td>
-            <td><img className="img-comingdays-forecast" src={`http://openweathermap.org/img/w/${forecastResults.list[39].weather[0].icon}.png`} /></td>
-          </tr>
-          <tr>
-            <th>{(new Date(forecastResults.list[7].dt_txt).getFullYear() + '/') +
-              (new Date(forecastResults.list[7].dt_txt).getMonth() + 1 + '/') +
-              (new Date(forecastResults.list[7].dt_txt).getDate())}</th>
+          <thead>
+            <tr>
+              <th>{(new Date(forecastResults.list[7].dt_txt).getFullYear() + '/') +
+                (new Date(forecastResults.list[7].dt_txt).getMonth() + 1 + '/') +
+                (new Date(forecastResults.list[7].dt_txt).getDate())}</th>
 
-            <th>{(new Date(forecastResults.list[15].dt_txt).getFullYear() + '/') +
-              (new Date(forecastResults.list[15].dt_txt).getMonth() + 1 + '/') +
-              (new Date(forecastResults.list[15].dt_txt).getDate())}</th>
+              <th>{(new Date(forecastResults.list[15].dt_txt).getFullYear() + '/') +
+                (new Date(forecastResults.list[15].dt_txt).getMonth() + 1 + '/') +
+                (new Date(forecastResults.list[15].dt_txt).getDate())}</th>
 
-            <th>{(new Date(forecastResults.list[23].dt_txt).getFullYear() + '/') +
-              (new Date(forecastResults.list[23].dt_txt).getMonth() + 1 + '/') +
-              (new Date(forecastResults.list[23].dt_txt).getDate())}</th>
+              <th>{(new Date(forecastResults.list[23].dt_txt).getFullYear() + '/') +
+                (new Date(forecastResults.list[23].dt_txt).getMonth() + 1 + '/') +
+                (new Date(forecastResults.list[23].dt_txt).getDate())}</th>
 
-            <th>{(new Date(forecastResults.list[31].dt_txt).getFullYear() + '/') +
-              (new Date(forecastResults.list[31].dt_txt).getMonth() + 1 + '/') +
-              (new Date(forecastResults.list[31].dt_txt).getDate())}</th>
+              <th>{(new Date(forecastResults.list[31].dt_txt).getFullYear() + '/') +
+                (new Date(forecastResults.list[31].dt_txt).getMonth() + 1 + '/') +
+                (new Date(forecastResults.list[31].dt_txt).getDate())}</th>
 
-            <th>{(new Date(forecastResults.list[39].dt_txt).getFullYear() + '/') +
-              (new Date(forecastResults.list[39].dt_txt).getMonth() + 1 + '/') +
-              (new Date(forecastResults.list[39].dt_txt).getDate())}</th>
+              <th>{(new Date(forecastResults.list[39].dt_txt).getFullYear() + '/') +
+                (new Date(forecastResults.list[39].dt_txt).getMonth() + 1 + '/') +
+                (new Date(forecastResults.list[39].dt_txt).getDate())}</th>
+            </tr>
+          </thead>
 
-          </tr>
-          <tr>
-            <td>{((forecastResults.list[7].main.temp) - 273.15).toFixed(0)}°C</td>
-            <td>{((forecastResults.list[15].main.temp) - 273.15).toFixed(0)}°C</td>
-            <td>{((forecastResults.list[23].main.temp) - 273.15).toFixed(0)}°C</td>
-            <td>{((forecastResults.list[31].main.temp) - 273.15).toFixed(0)}°C</td>
-            <td>{((forecastResults.list[39].main.temp) - 273.15).toFixed(0)}°C</td>
-          </tr>
+          <tbody>
+            <tr >
+              <td><img className="img-comingdays-forecast" alt="commingdays-forecast7" src={`http://openweathermap.org/img/w/${forecastResults.list[7].weather[0].icon}.png`} /></td>
+              <td><img className="img-comingdays-forecast" alt="commingdays-forecast15" src={`http://openweathermap.org/img/w/${forecastResults.list[15].weather[0].icon}.png`} /></td>
+              <td><img className="img-comingdays-forecast" alt="commingdays-forecast23" src={`http://openweathermap.org/img/w/${forecastResults.list[23].weather[0].icon}.png`} /></td>
+              <td><img className="img-comingdays-forecast" alt="commingdays-forecast31" src={`http://openweathermap.org/img/w/${forecastResults.list[31].weather[0].icon}.png`} /></td>
+              <td><img className="img-comingdays-forecast" alt="commingdays-forecast39" src={`http://openweathermap.org/img/w/${forecastResults.list[39].weather[0].icon}.png`} /></td>
+            </tr>
+
+            <tr>
+              <td>{((forecastResults.list[7].main.temp) - 273.15).toFixed(0)}°C</td>
+              <td>{((forecastResults.list[15].main.temp) - 273.15).toFixed(0)}°C</td>
+              <td>{((forecastResults.list[23].main.temp) - 273.15).toFixed(0)}°C</td>
+              <td>{((forecastResults.list[31].main.temp) - 273.15).toFixed(0)}°C</td>
+              <td>{((forecastResults.list[39].main.temp) - 273.15).toFixed(0)}°C</td>
+            </tr>
+          </tbody>
         </table>
+
       </div>
+
     </div >
   )
 }

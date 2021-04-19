@@ -5,7 +5,7 @@ import './CloudBackground.css'
 const CloudBackground = () => {
     return (
         <div>
-            <div class="cloud">
+            <div className="cloud">
             <h1 className="navbar-title">WEATHER FORECAST</h1></div>
             <ForecastApp />
         </div>
