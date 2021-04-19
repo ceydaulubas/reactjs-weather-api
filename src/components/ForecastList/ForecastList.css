@@ -1,49 +1,126 @@
-.top-info{
-    margin-top: 30%;
-    margin-left: 15%;
-    float: left;
-    /* background-color: tomato; */
+/* .container {
+  display: grid;
+  grid-template-columns: 33% 33% 33%;
+  grid-template-rows: 400px;
+
+  grid-column-gap: 2%;
+  grid-row-gap: 2%;
+
+  margin-left: 5%;
+  margin-right: 5%;
+  background-color: rgba(196, 238, 255, 0.164);
+  border: rgba(255, 255, 255, 0.075) solid;
+  color: white;
+} */
+
+/* .top-info {
+  margin-top: 30%;
+  margin-left: 15%;
+  background-color: tomato;
+} */
+
+/* .forecast-generalinfo {
+  margin-top: 30%;
+  font-size: 20px;
+  background-color: rgb(63, 63, 31);
+} */
+
+/* .hour-forecast-slider {
+  margin-top: 50%;
+  background-color: violet;
+} */
+
+/* .comingdays-forecast {
+  background-color:rgb(69, 68, 143);
+  margin-left: 50%;
+  height: 40vh;
+  width: 100%;
+  margin-top: 10%;
+} */
+
+/* .comingdays-forecast h2{
+  margin-left: 75%;
+  width: 100%;
+  font-size: 36px;
+}
+
+.comingdays-table td {
+  padding-left: 5%;
+}
+
+.comingdays-table th {
+  padding-left: 5%;
+}
+
+.img-comingdays-forecast{
+  width: 100px;
+  height: 100px;
+} */
+
+
+.container{
+  margin-left: 5%;
+  margin-right: 5%;
+  background-color: rgba(196, 238, 255, 0.164);
+  border: rgba(255, 255, 255, 0.075) solid;
+  color: white;
+  height: 70vh;
+
+}
+
+.top-info h1{
+  margin-top: 8%;
+  font-size: 45px;
+  margin-left:37.5%;
+  border: rgba(255, 255, 255, 0.658) solid ;
+  background-color:rgba(255, 255, 255, 0.082) ;
+  width: 350px;
+  text-align: center;
+}
+
+.current-date{
+  float: left;
+  margin-left: 5%;
 }
 
 .forecast-generalinfo{
-    margin-top: 30%;
-    /* background-color: yellow; */
-}
-
-.hour-forecast-slider{
-    margin-top: 50%;
-    /* background-color: violet; */
-}
-
-.container{
-    display: grid;
-    grid-template-columns: 33% 33% 33%;
-    grid-template-rows: 400px;
-
-    grid-column-gap: 2%;
-   grid-row-gap: 2%;
-
-   margin-left:10%;
-   margin-right: 10%;
-   background-color: rgba(196, 238, 255, 0.164);
-   border:rgba(255, 255, 255, 0.075) solid ;
-   color: white;
+  float: right;
+  margin-right: 5%;
+  margin-top: -11.7%;
 }
 
 .comingdays-forecast{
-    /* background-color:rgb(69, 68, 143); */
-    margin-left:50%;
-    height: 40vh;
-    width: 100%;
-    margin-top: 10%;
-} 
+  margin-left: 28%;
+}
 
-.comingdays-table td{
-    padding-left: 15%;
+.comingdays-forecast h2{
+  margin-left: 15%;
+  font-size: 30px;
+}
 
+.img-comingdays-forecast{
+  width: 55px;
+  height: 55px;
+}
+
+.hour-forecast-slider{
+  float: left;
+  margin-left: 5%;
+  margin-top: 1%;
 }
 
 .comingdays-table th{
-    padding-left: 15%;
+padding-left: 3%;
+}
 
+.comingdays-table td{
+  padding-left: 3%;
+  }
+.current-weather{
+  margin-left: 6.5%;
+}
+.img-fluid-current{
+  margin-left: 1%;
+  width: 80px;
+  height: 80px;
 }

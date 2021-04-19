@@ -23,17 +23,20 @@ const ForecastList = ({ forecastResults, currentWeather }) => {
   let sunSetTime = dateForSunset.toLocaleTimeString(navigator.language, { hour: '2-digit', minute: '2-digit' });
 
   return (
-    <div className="container">
+    <div>
       <div className= "top-info">
         <h1 className="city">{forecastResults.city.name}
           <span className="country"> ({forecastResults.city.country})</span>
         </h1>
         <div>
-          <div>
+          <div className="current-date">
             <CurrentDate />
-          </div>
+          </div> 
+          <br/>
+          <div className="current-weather">
           <p>{((currentWeather.main.temp) - 273.15).toFixed(0)}°C | {(currentWeather.weather[0].description).charAt(0).toUpperCase() + (currentWeather.weather[0].description).slice(1)} </p>
-          <img className="img-fluid" src={`http://openweathermap.org/img/w/${currentWeather.weather[0].icon}.png`} />
+          <img className="img-fluid-current" src={`http://openweathermap.org/img/w/${currentWeather.weather[0].icon}.png`} />
+          </div>
         </div>
       </div>
 
@@ -62,24 +65,24 @@ const ForecastList = ({ forecastResults, currentWeather }) => {
 
 
       <div className="forecast-generalinfo">
-      <p> <img src={Population} alt="min" width="20" height="20"></img> {currentWeather.name}'s population is {(forecastResults.city.population).toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.')}</p>
-        <p> <img src={MinTemp} alt="min" width="20" height="20"></img> Average minimum temperature is {((currentWeather.main.temp_min) - 273.15).toFixed(0)} °C</p>
-        <p> <img src={MaxTemp} alt="min" width="20" height="20"></img> Average maximum temperature is {((currentWeather.main.temp_max) - 273.15).toFixed(0)} °C</p>
-        <p> <img src={Wind} alt="min" width="20" height="20"></img> The wind speed is {currentWeather.wind.speed} km per hour</p>
-        <p> <img src={Humidity} alt="min" width="20" height="20"></img> The humidty is {currentWeather.main.humidity} % </p>
-        <p> <img src={SunRise} alt="min" width="20" height="20"></img> The sun rises at {sunRiseTime} </p>
-        <p> <img src={SunSet} alt="min" width="20" height="20"></img> The sun sets at {sunSetTime} </p>
+      <p> <img src={Population} alt="min" width="30" height="30"></img> {currentWeather.name}'s population is {(forecastResults.city.population).toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.')}</p>
+        <p> <img src={MinTemp} alt="min" width="30" height="30"></img> Average minimum temperature is {((currentWeather.main.temp_min) - 273.15).toFixed(0)} °C</p>
+        <p> <img src={MaxTemp} alt="min" width="30" height="30"></img> Average maximum temperature is {((currentWeather.main.temp_max) - 273.15).toFixed(0)} °C</p>
+        <p> <img src={Wind} alt="min" width="30" height="30"></img> The wind speed is {currentWeather.wind.speed} km per hour</p>
+        <p> <img src={Humidity} alt="min" width="30" height="30"></img> The humidty is {currentWeather.main.humidity} % </p>
+        <p> <img src={SunRise} alt="min" width="30" height="30"></img> The sun rises at {sunRiseTime} </p>
+        <p> <img src={SunSet} alt="min" width="30" height="30"></img> The sun sets at {sunSetTime} </p>
       </div>
 
       <div className="comingdays-forecast">
         <h2> Coming Days</h2>
         <table className="comingdays-table">
           <tr >
-            <td><img className="img-fluid" src={`http://openweathermap.org/img/w/${forecastResults.list[7].weather[0].icon}.png`} /></td>
-            <td><img className="img-fluid" src={`http://openweathermap.org/img/w/${forecastResults.list[15].weather[0].icon}.png`} /></td>
-            <td><img className="img-fluid" src={`http://openweathermap.org/img/w/${forecastResults.list[23].weather[0].icon}.png`} /></td>
-            <td><img className="img-fluid" src={`http://openweathermap.org/img/w/${forecastResults.list[31].weather[0].icon}.png`} /></td>
-            <td><img className="img-fluid" src={`http://openweathermap.org/img/w/${forecastResults.list[39].weather[0].icon}.png`} /></td>
+            <td><img className="img-comingdays-forecast" src={`http://openweathermap.org/img/w/${forecastResults.list[7].weather[0].icon}.png`} /></td>
+            <td><img className="img-comingdays-forecast" src={`http://openweathermap.org/img/w/${forecastResults.list[15].weather[0].icon}.png`} /></td>
+            <td><img className="img-comingdays-forecast" src={`http://openweathermap.org/img/w/${forecastResults.list[23].weather[0].icon}.png`} /></td>
+            <td><img className="img-comingdays-forecast" src={`http://openweathermap.org/img/w/${forecastResults.list[31].weather[0].icon}.png`} /></td>
+            <td><img className="img-comingdays-forecast" src={`http://openweathermap.org/img/w/${forecastResults.list[39].weather[0].icon}.png`} /></td>
           </tr>
           <tr>
             <th>{(new Date(forecastResults.list[7].dt_txt).getFullYear() + '/') +

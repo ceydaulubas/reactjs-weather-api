@@ -32,7 +32,7 @@ const CurrentDate = () => {
 
     return (
         <div>
-            {day}<br/>
+            {day} |
            {datum} {month} {year}
         </div>
     )

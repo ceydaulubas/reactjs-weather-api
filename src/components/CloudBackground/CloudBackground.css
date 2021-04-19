@@ -16,8 +16,10 @@
   }
 
   .navbar-title{
-      text-align: center;
+      /* text-align: center; */
       color: white;
       padding: 3%;
       width: 100%;
+      color: rgb(53, 61, 61);
+      margin-left: 2.5%;
   }
